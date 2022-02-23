@@ -10,7 +10,9 @@ def get_open_transactions(customer):
     sql_query = """SELECT
             `tabPurchase Invoice Collection Debtor`.`collection_debtor` AS `collection_debtor`,
             `tabPurchase Invoice Collection Debtor`.`net_amount` AS `net_amount`,
-            `tabPurchase Invoice Collection Debtor`.`gross_amount` AS `gross_amount`
+            `tabPurchase Invoice Collection Debtor`.`gross_amount` AS `gross_amount`,
+            `tabPurchase Invoice Collection Debtor`.`parent` AS `purchase_invoice`,
+            `tabPurchase Invoice Collection Debtor`.`name` AS `pinv_detail`
         FROM `tabPurchase Invoice Collection Debtor`
         LEFT JOIN `tabSales Invoice Collection Debtor` ON 
             (`tabSales Invoice Collection Debtor`.`pinv_detail` = `tabPurchase Invoice Collection Debtor`.`name`
