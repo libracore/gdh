@@ -19,6 +19,6 @@ def get_open_transactions(customer):
             `tabPurchase Invoice Collection Debtor`.`customer` = "{customer}"
             AND `tabSales Invoice Collection Debtor`.`name` IS NULL;""".format(customer=customer)
     
-    data = frapp.db.sql(sql_query, as_dict=True)
+    data = frappe.db.sql(sql_query, as_dict=True)
     
     return data
